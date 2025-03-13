@@ -1,0 +1,367 @@
+{
+    "elevators": {
+    "types": {
+        "elevator": "object",
+        "slow-elevator": "elevator",
+        "fast-elevator": "elevator",
+        "passenger": "object",
+        "count": "object"
+
+    },
+    "actions": {
+        "move-up-slow": ["slow-elevator", "count1", "count2"],
+        "move-down-slow": ["slow-elevator", "count1", "count2"],
+        "move-up-fast": ["fast-elevator", "count1", "count2"],
+        "move-down-fast": ["fast-elevator", "count1", "count2"],
+        "board": ["passenger", "elevator", "count1", "count2", "count3"],
+        "leave": ["passenger", "elevator", "count1", "count2", "count3"]
+    }
+    },
+    "driverlog": {
+    "types": {
+        "location": "object",
+        "locatable": "object",
+        "truck": "locatable",
+        "driver": "locatable",
+        "obj": "locatable"
+    },
+    "actions": {
+        "load-truck": ["obj", "truck", "location"],
+        "unload-truck": ["obj", "truck", "location"],
+        "board-truck": ["driver", "truck", "location"],
+        "disembark-truck": ["driver", "truck", "location"],
+        "drive-truck": ["truck", "location1", "location2", "driver"],
+        "walk": ["driver", "location1", "location2"]
+    }
+    },
+    "depot": {
+    "types": {
+        "place": "object",
+        "locatable": "object",
+        "depot": "place",
+        "distributor": "place",
+        "truck": "locatable",
+        "hoist": "locatable",
+        "surface": "locatable",
+        "pallet": "surface",
+        "crate": "surface"
+    },
+"actions": {
+    "drive": ["truck", "place1", "place2"],
+    "lift": ["hoist", "crate", "surface", "place"],
+    "drop": ["hoist", "crate", "surface", "place"],
+    "load": ["hoist", "crate", "truck", "place"],
+    "unload": ["hoist", "crate", "truck", "place"]
+}
+    },
+    "blocks": {
+    "types": {
+        "block": "object"
+    },
+    "actions": {
+        "pick-up": ["block"],
+        "put-down": ["block"],
+        "stack": ["block1", "block2"],
+        "unstack": ["block1", "block2"]
+    }
+    },
+    "gripper": {
+    "types": {
+        "room": "object",
+        "ball": "object",
+        "gripper": "object",
+        "robot": "object"
+    },
+    "actions": {
+        "move": ["robot", "room1", "room2"],
+        "pick": ["robot", "ball", "room", "gripper"],
+        "drop": ["robot", "ball", "room", "gripper"]
+    }
+    },
+    "transport": {
+    "types": {
+        "location": "object",
+        "target": "object",
+        "locatable": "object",
+        "vehicle": "locatable",
+        "package": "locatable",
+        "capacity-number": "object"
+    },
+    "actions": {
+        "drive": ["vehicle", "location1", "location2"],
+        "pick-up": ["vehicle", "location", "package", "capacity-number1", "capacity-number2"],
+        "drop": ["vehicle", "location", "package", "capacity-number1", "capacity-number2"]
+    }
+    },
+    "satellite": {
+    "types": {
+        "satellite": "object",
+        "direction": "object",
+        "instrument": "object",
+        "mode": "object"
+    },
+    "actions": {
+        "turn-to": ["satellite", "direction1", "direction2"],
+        "switch-on": ["instrument", "satellite"],
+        "switch-off": ["instrument", "satellite"],
+        "calibrate": ["satellite", "instrument", "direction"],
+        "take-image": ["satellite", "direction", "instrument", "mode"]
+    }
+    },
+    "floortile": {
+    "types": {
+        "robot": "object",
+        "tile": "object",
+        "color": "object"
+    },
+    "actions": {
+        "change-color": ["robot", "color1", "color2"],
+        "paint-up": ["robot", "tile1", "tile2", "color"],
+        "paint-down": ["robot", "tile1", "tile2", "color"],
+        "up": ["robot", "tile1", "tile2"],
+        "down": ["robot", "tile1", "tile2"],
+        "right": ["robot", "tile1", "tile2"],
+        "left": ["robot", "tile1", "tile2"]
+    }
+    },
+    "parking": {
+    "types": {
+        "car": "object",
+        "curb": "object"
+    },
+    "actions": {
+        "move-curb-to-curb": ["car", "curb1", "curb2"],
+        "move-curb-to-car": ["car1", "curb", "car2"],
+        "move-car-to-curb": ["car1", "car2", "curb"],
+        "move-car-to-car": ["car1", "car2", "car3"]
+    }
+    },
+    "sokoban": {
+    "types": {
+        "LOC": "object",
+        "DIR": "object",
+        "BOX": "object"
+    },
+    "actions": {
+        "move": ["LOC1", "LOC2", "DIR"],
+        "push": ["LOC1", "LOC2", "LOC3", "DIR", "BOX"]
+    }
+    },
+    "zenotravel": {
+        "types": {
+            "city": "object",
+            "flevel": "object",
+            "either_aircraft_person": "object",
+            "aircraft": "either_aircraft_person",
+            "person": "either_aircraft_person"
+        },
+    "actions": {
+        "board": ["person", "aircraft", "city"],
+        "debark": ["person", "aircraft", "city"],
+        "fly": ["aircraft", "city1", "city2", "flevel1", "flevel2"],
+        "zoom": ["aircraft", "city1", "city2", "flevel1", "flevel2", "flevel3"],
+        "refuel": ["aircraft", "city", "flevel1", "flevel2"]
+    }
+    },
+    "barman": {
+        "types": {
+            "hand": "object",
+            "level": "object",
+            "beverage": "object",
+            "dispenser": "object",
+            "container": "object",
+            "ingredient": "beverage",
+            "cocktail": "beverage",
+            "shot": "container",
+            "shaker": "container"
+        },
+        "actions": {
+            "grasp": ["hand", "container"],
+            "leave": ["hand", "container"],
+            "fill-shot": ["shot", "ingredient", "hand1", "hand2", "dispenser"],
+            "refill-shot": ["shot", "ingredient", "hand1", "hand2", "dispenser"],
+            "empty-shot": ["hand", "shot", "beverage"],
+            "clean-shot": ["shot", "beverage", "hand1", "hand2"],
+            "pour-shot-to-clean-shaker": ["shot", "ingredient", "shaker", "hand", "level1", "level2"],
+            "pour-shot-to-used-shaker": ["shot", "ingredient", "shaker", "hand", "level1", "level2"],
+            "empty-shaker": ["hand", "shaker", "cocktail", "level1", "level2"],
+            "clean-shaker": ["hand1", "hand2", "shaker"],
+            "shake": ["cocktail", "ingredient1", "ingredient2", "shaker", "hand1", "hand2"],
+            "pour-shaker-to-shot": ["beverage", "shot", "hand", "shaker", "level1", "level2"]
+        }
+    },
+    "ferry": {
+        "types": {
+            "car": "object",
+            "location": "object"
+        },
+        "actions": {
+            "sail": ["location1", "location2"],
+            "board": ["car", "location"],
+            "debark": ["car", "location"]
+        }
+    },
+
+    "n-puzzle": {
+        "types": {
+            "position": "object",
+            "tile": "object"
+        },
+        "actions": {
+            "move": ["tile", "position1", "position2"]
+
+        }
+    },
+    "tpp": {
+        "types": {
+            "place": "object",
+            "locatable": "object",
+            "level": "object",
+            "depot": "place",
+            "market": "place",
+            "truck": "locatable",
+            "goods": "locatable"
+        },
+        "actions": {
+            "drive": ["truck", "place1", "place2"],
+            "load": ["goods", "truck", "market", "level1", "level2", "level3", "level4"],
+            "unload":  ["goods", "truck", "depot", "level1", "level2", "level3", "level4"],
+            "buy":  ["truck", "goods", "market", "level1", "level2", "level3", "level4"]
+
+        }
+    },
+    "hanoi": {
+        "types": {
+            "disc": "platform",
+            "table": "platform",
+            "platform": "object"
+        },
+        "actions": {
+            "move": ["disc", "platform1", "platform2"]
+
+        }
+    },
+
+    "spanner": {
+        "types": {
+            "location": "object",
+            "locatable": "object",
+            "man": "locatable",
+            "nut": "locatable",
+            "spanner": "locatable"
+
+        },
+        "actions": {
+            "walk": ["location1", "location2", "man"],
+            "pickup_spanner": ["location", "spanner", "man"],
+            "tighten_nut": ["location", "spanner", "man", "nut"]
+
+        }
+    },
+    "gold-miner": {
+        "types": {
+            "LOC": "object"
+
+        },
+        "actions": {
+            "move": ["LOC1", "LOC2"],
+            "pickup-laser": ["LOC"],
+            "pickup-bomb": ["LOC"],
+            "putdown-laser": ["LOC"],
+            "detonate-bomb": ["LOC1", "LOC2"],
+            "fire-laser": ["LOC1", "LOC2"],
+            "pick-gold": ["LOC"]
+        }
+
+    },
+    
+    "nomystery": {
+        "types": {
+            "location": "object",
+            "fuellevel": "object",
+            "locatable": "object",
+            "package": "locatable",
+            "truck": "locatable"
+
+        },
+        "actions": {
+            "load": ["package", "truck", "location"],
+            "unload": ["package", "truck", "location"],
+            "drive": ["truck", "location1", "location2", "fuellevel1", "fuellevel2", "fuellevel3"]
+        }
+        },
+
+    "rover": {
+        "types": {
+            "rover": "object",
+            "waypoint": "object",
+            "store": "object",
+            "camera": "object",
+            "mode": "object",
+            "lander": "object",
+            "objective": "object"
+
+        },
+        "actions": {
+            "navigate": ["rover", "waypoint1", "waypoint2"],
+            "sample_soil": ["rover", "store", "waypoint"],
+            "sample_rock": ["rover", "store", "waypoint"],
+            "drop": ["rover", "store"],
+            "calibrate": ["rover", "camera", "objective", "waypoint"],
+            "take_image": ["rover", "waypoint", "objective", "camera", "mode"],
+            "communicate_soil_data": ["rover", "lander", "waypoint1", "waypoint2", "waypoint3"],
+            "communicate_rock_data": ["rover", "lander", "waypoint1", "waypoint2", "waypoint3"],
+            "communicate_image_data": ["rover", "lander", "objective", "mode", "waypoint1", "waypoint2"]      
+        }
+    },
+
+    "grid": {
+        "types": {
+            "place": "object",
+            "key": "object",
+            "shape": "object"
+
+        },
+        "actions":{
+                "unlock": ["place1", "place2", "key", "shape"],
+                "move": ["place1", "place2"],
+                "pickup": ["place1", "key"],
+                "pickup-and-loose": ["place1", "newkey", "oldkey"],
+                "putdown": ["place1", "key"]
+            
+        }
+    },
+    "miconic":{
+        "types":{
+            "floor": "object",
+            "passenger": "object"
+        },
+
+        "actions":{
+            "board": ["floor", "passenger"],
+            "depart": ["floor", "passenger"],
+            "up": ["floor1", "floor2"],
+            "down": ["floor1", "floor2"]            
+        }
+    },
+    "matching-bw":{
+        "types":{
+            "block": "object",
+            "hand": "object"
+        },
+
+    "actions": {
+        "pickup": ["hand", "block"],
+        "putdown-pos-pos": ["hand", "block"],
+        "putdown-neg-neg": ["hand", "block"],
+        "putdown-pos-neg": ["hand", "block"],
+        "putdown-neg-pos": ["hand", "block"],
+        "stack-pos-pos": ["hand", "block1", "block2"],
+        "stack-neg-neg": ["hand", "block1", "block2"],
+        "stack-pos-neg": ["hand", "block1", "block2"],
+        "stack-neg-pos": ["hand", "block1", "block2"],
+        "unstack": ["hand", "block1", "block2"]
+    }
+        
+    }
+}
