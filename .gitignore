@@ -7,33 +7,9 @@ __pycache__/
 
 # Ignore debug
 .venv/
-.vscode/
 
-# Ignore log files
-*.log
 
 # Ignore other files, just upoload the code for now
-/Examples/*
-/validator/*
-/code/old-code/
-/code/back-up
-/TrajectoriesSAM
-/Statistics
 /LearnedDomains
-/GeneratedTriples
-/Results/*
-/code-backup/*
-
-# Ignore data files
+#/GeneratedTriples
 /DataFrames/*
-
-#Ignore validator and planner
-/ENHSP-Public-enhsp-20
-/VAL-master
-
-#ignore personal configuration
-/code/config
-
-# Ignore OS-specific files
-.DS_Store
-Thumbs.db

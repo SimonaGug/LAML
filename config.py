@@ -1,7 +1,7 @@
 from pathlib import Path
 
 #insert here the folder path
-HOME = "C:\\Users\\sgut6y\\Desktop\\PhD\\Code\\LAML"
+HOME = ""
 
 LEARNED_DOMAIN_PATH = f"{HOME}\\LearnedDomains"
 DATA_FRAMES_PATH = f"{HOME}\\DataFrames"
